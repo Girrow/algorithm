@@ -1,21 +1,26 @@
 package A0216;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
 public class T2920 {
-    public static void main(String[] args){
-        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            while(st.hasMoreTokens()){
-                int tmp = Integer.parseInt(st.nextToken());
-
-            }
-
-        }catch(Exception e){
-            e.printStackTrace();
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] inputs = new int[8];
+        for (int i = 0; i < inputs.length; i++) {
+            inputs[i] = sc.nextInt();
         }
-      
+        sc.close();
+
+        String output = "";
+        for (int i = 0; i < inputs.length - 1; i++) {
+            if (inputs[i] == inputs[i + 1] - 1) {
+                output = "ascending";
+            } else if (inputs[i] == inputs[i + 1] + 1) {
+                output = "descending";
+            } else {
+                output = "mixed";
+                break;
+            }
+        }
+        System.out.println(output);
     }
 }
